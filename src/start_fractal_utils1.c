@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 22:13:13 by elrichar          #+#    #+#             */
-/*   Updated: 2023/08/23 14:39:30 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/02/19 18:22:27 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ double	get_module(t_complex *complex_z)
 	double	y_pow;
 	double	module;
 
-	x_pow = pow(complex_z->real, 2);
-	y_pow = pow(complex_z->imag, 2);
+	x_pow = (complex_z->real) * (complex_z->real);
+	y_pow = (complex_z->imag) * (complex_z->imag);
 	module = sqrt(x_pow + y_pow);
 	return (module);
 }
@@ -65,8 +65,8 @@ int	nb_iterations(t_complex *complex_c, t_complex *complex_z)
 	while (iterations < NB_ITERATIONS)
 	{
 		tmp = complex_z->real;
-		complex_z->real = pow(complex_z->real, 2)
-			- pow(complex_z->imag, 2) + complex_c->real;
+		complex_z->real = (complex_z->real * complex_z->real)
+			- (complex_z->imag * complex_z->imag) + complex_c->real;
 		complex_z->imag = 2 * tmp * complex_z->imag + complex_c->imag;
 		module = get_module(complex_z);
 		if (module > VALEUR_MODULE)

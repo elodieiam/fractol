@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 22:14:30 by elrichar          #+#    #+#             */
-/*   Updated: 2023/08/24 11:46:49 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/02/19 18:29:03 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,8 @@ int	nb_iterations_burning(t_complex *c, t_complex *z)
 	while (iterations < NB_ITERATIONS)
 	{
 		tmp = z->real;
-		z->real = pow(fabs(z->real), 2) - pow(fabs(z->imag), 2) + c->real;
-		z->imag = -2 * fabs(tmp) * fabs(z->imag) + c->imag ;
+		z->real = (abs_val(z->real) * abs_val(z->real)) - (abs_val(z->imag) * abs_val(z->imag)) + c->real;
+		z->imag = -2 * abs_val(tmp) * abs_val(z->imag) + c->imag ;
 		module = get_module(z);
 		if (module > VALEUR_MODULE)
 			return (iterations);

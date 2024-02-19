@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 22:11:03 by elrichar          #+#    #+#             */
-/*   Updated: 2023/08/24 12:12:40 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/02/19 18:20:55 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	nb_iterations_julia(t_complex *c, t_complex *z, double indicator)
 	while (iterations < NB_ITERATIONS)
 	{
 		tmp = c->real;
-		c->real = pow(c->real, 2) - pow(c->imag, 2) + z->real;
+		c->real = (c->real * c->real) - (c->imag * c->imag) + z->real;
 		c->imag = 2 * tmp * c->imag + (indicator * (z->imag));
 		module = get_module(c);
 		if (module > VALEUR_MODULE)

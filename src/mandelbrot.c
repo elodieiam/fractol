@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 22:09:57 by elrichar          #+#    #+#             */
-/*   Updated: 2023/08/25 18:58:22 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/02/19 18:28:40 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,12 @@ int	check_sign(char *s)
 			return (1);
 	}
 	return (0);
+}
+
+int	abs_val(int x)
+{
+	if (x < 0)
+        return -x;
+    else
+        return x;
 }
