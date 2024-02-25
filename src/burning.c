@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 22:14:30 by elrichar          #+#    #+#             */
-/*   Updated: 2024/02/19 18:29:03 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/02/25 14:27:12 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,15 +50,29 @@ void	start_burning_ship(t_mlx *mlx_data)
 		mlx_data->img_data.img, 0, 0);
 }
 
-void	set_burning_fractal_vars(void)
+static int	init_minilibx(t_mlx *mlx_data)
+{
+	mlx_data->mlx = mlx_init();
+	if (!mlx_data->mlx)
+		return (1);
+	mlx_data->mlx_win = mlx_new_window(mlx_data->mlx, WINDOW_X_S, WINDOW_Y_S,
+			"Burning Ship Fractal");
+	if (!mlx_data->mlx_win)
+		return (1);
+	mlx_data->img_data.img = mlx_new_image(mlx_data->mlx,
+			WINDOW_X_S, WINDOW_Y_S);
+	if (!mlx_data->img_data.img)
+		return (1);
+	return (0);
+}
+
+int	set_burning_fractal_vars(void)
 {
 	t_mlx	mlx_data;
 
 	ft_bzero(&mlx_data, sizeof(mlx_data));
-	mlx_data.mlx = mlx_init();
-	mlx_data.mlx_win = mlx_new_window(mlx_data.mlx, WINDOW_X_S, WINDOW_Y_S,
-			"Burning Ship Fractal");
-	mlx_data.img_data.img = mlx_new_image(mlx_data.mlx, WINDOW_X_S, WINDOW_Y_S);
+	if (init_minilibx(&mlx_data))
+		return (1);
 	mlx_data.img_data.addr = mlx_get_data_addr(mlx_data.img_data.img,
 			&mlx_data.img_data.bpp, &mlx_data.img_data.line_length,
 			&mlx_data.img_data.endian);
@@ -70,6 +84,7 @@ void	set_burning_fractal_vars(void)
 	start_burning_ship(&mlx_data);
 	start_hooks_ship(&mlx_data);
 	mlx_loop(mlx_data.mlx);
+	return (0);
 }
 
 void	complex_plane_dimensions_burning(t_mlx *mlx_data)
@@ -92,7 +107,8 @@ int	nb_iterations_burning(t_complex *c, t_complex *z)
 	while (iterations < NB_ITERATIONS)
 	{
 		tmp = z->real;
-		z->real = (abs_val(z->real) * abs_val(z->real)) - (abs_val(z->imag) * abs_val(z->imag)) + c->real;
+		z->real = (abs_val(z->real) * abs_val(z->real))
+			- (abs_val(z->imag) * abs_val(z->imag)) + c->real;
 		z->imag = -2 * abs_val(tmp) * abs_val(z->imag) + c->imag ;
 		module = get_module(z);
 		if (module > VALEUR_MODULE)

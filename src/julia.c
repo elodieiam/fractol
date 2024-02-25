@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 22:11:03 by elrichar          #+#    #+#             */
-/*   Updated: 2024/02/19 18:20:55 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/02/25 14:14:18 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,22 @@ void	start_julia(t_mlx *mlx_data)
 		mlx_data->img_data.img, 0, 0);
 }
 
-void	set_julia_vars(char **av)
+static int	init_minilibx(t_mlx *mlx_data)
+{
+	mlx_data->mlx = mlx_init();
+	if (!mlx_data->mlx)
+		return (1);
+	mlx_data->mlx_win = mlx_new_window(mlx_data->mlx, WINDOW_X, WINDOW_Y,
+			"Julia Fractal");
+	if (!mlx_data->mlx_win)
+		return (1);
+	mlx_data->img_data.img = mlx_new_image(mlx_data->mlx, WINDOW_X, WINDOW_Y);
+	if (!mlx_data->img_data.img)
+		return (1);
+	return (0);
+}
+
+int	set_julia_vars(char **av)
 {
 	t_mlx	mlx_data;
 
@@ -47,10 +62,8 @@ void	set_julia_vars(char **av)
 		mlx_data.indicator = -1;
 	mlx_data.complex.real = ft_atod_real(av[2]);
 	mlx_data.complex.imag = ft_atod(av[4]);
-	mlx_data.mlx = mlx_init();
-	mlx_data.mlx_win = mlx_new_window(mlx_data.mlx, WINDOW_X, WINDOW_Y,
-			"Julia Fractal");
-	mlx_data.img_data.img = mlx_new_image(mlx_data.mlx, WINDOW_X, WINDOW_Y);
+	if (init_minilibx(&mlx_data))
+		return (1);
 	mlx_data.img_data.addr = mlx_get_data_addr(mlx_data.img_data.img,
 			&mlx_data.img_data.bpp, &mlx_data.img_data.line_length,
 			&mlx_data.img_data.endian);
@@ -60,6 +73,7 @@ void	set_julia_vars(char **av)
 	start_julia(&mlx_data);
 	start_hooks_julia(&mlx_data);
 	mlx_loop(mlx_data.mlx);
+	return (0);
 }
 
 void	start_hooks_julia(t_mlx *mlx_data)

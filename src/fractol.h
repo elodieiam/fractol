@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 11:57:25 by elrichar          #+#    #+#             */
-/*   Updated: 2024/02/19 18:28:48 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/02/25 14:23:44 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ typedef struct s_mlx
 //burning.c
 int		get_iterations_ship(int x, int y, t_mlx *mlx_data);
 void	start_burning_ship(t_mlx *mlx_data);
-void	set_burning_fractal_vars(void);
+int		set_burning_fractal_vars(void);
 void	complex_plane_dimensions_burning(t_mlx *mlx_data);
 int		nb_iterations_burning(t_complex *c, t_complex *z);
 
@@ -107,14 +107,14 @@ void	color_pixel_burning(int x, int y, double iterations, t_mlx *mlx_data);
 
 //julia.c
 void	start_julia(t_mlx *mlx_data);
-void	set_julia_vars(char **av);
+int		set_julia_vars(char **av);
 void	start_hooks_julia(t_mlx *mlx_data);
 int		nb_iterations_julia(t_complex *c, t_complex *z, double i);
 int		get_iterations_julia(int x, int y, t_mlx *mlx_data);
 
 //mandelbrot.c
 void	start_mandelbrot(t_mlx *mlx_data, int indicator);
-void	set_mandelbrot_vars(void);
+int		set_mandelbrot_vars(void);
 int		check_sign(char *s);
 int		abs_val(int x);
 
