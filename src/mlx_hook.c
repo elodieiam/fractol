@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 22:08:22 by elrichar          #+#    #+#             */
-/*   Updated: 2023/08/25 18:53:37 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/07/29 21:07:21 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,17 @@ int	handle_destroy(t_mlx *mlx_data)
 int	mouse_scroll(int event, int x, int y, t_mlx *mlx_data)
 {
 	if (event == Button4)
+	{
+		if (mlx_data->color > 0x000033)
+			mlx_data->color += 10;
 		zoom_in(x, y, mlx_data, 0.9);
+	}
 	else if (event == Button5)
+	{
+		if (mlx_data->color < 0xFFFFDD)
+			mlx_data->color -= 10;
 		zoom_out(x, y, mlx_data, 0.9);
+	}
 	return (0);
 }
 

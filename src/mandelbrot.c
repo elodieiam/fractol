@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 22:09:57 by elrichar          #+#    #+#             */
-/*   Updated: 2024/02/25 14:26:03 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/07/29 20:39:40 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	start_mandelbrot(t_mlx *mlx_data, int indicator)
 		{
 			iterations = get_iterations(x, y, mlx_data);
 			if (indicator == 1)
-				color_pixel_zoom(x, y, iterations, mlx_data);
+				color_pixel(x, y, iterations, mlx_data);
 			else
 				color_pixel(x, y, iterations, mlx_data);
 			x++;
@@ -68,6 +68,7 @@ int	set_mandelbrot_vars(void)
 	(void)mlx_data.complex;
 	(void)mlx_data.indicator;
 	mlx_data.fractal = 1;
+	mlx_data.color =  0x0A0A0A;
 	set_ratio(&mlx_data);
 	start_mandelbrot(&mlx_data, 0);
 	mlx_hook(mlx_data.mlx_win, ButtonPress,

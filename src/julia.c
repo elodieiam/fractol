@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 22:11:03 by elrichar          #+#    #+#             */
-/*   Updated: 2024/02/25 14:14:18 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/07/29 21:04:07 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int	set_julia_vars(char **av)
 	mlx_data.complex.imag = ft_atod(av[4]);
 	if (init_minilibx(&mlx_data))
 		return (1);
+	mlx_data.color = 0x0A0A0A;
 	mlx_data.img_data.addr = mlx_get_data_addr(mlx_data.img_data.img,
 			&mlx_data.img_data.bpp, &mlx_data.img_data.line_length,
 			&mlx_data.img_data.endian);

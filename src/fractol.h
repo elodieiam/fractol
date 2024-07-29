@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 11:57:25 by elrichar          #+#    #+#             */
-/*   Updated: 2024/02/25 14:23:44 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/07/29 20:19:58 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ typedef struct s_mlx
 	t_complex	complex;
 	double		indicator;
 	int			fractal;
+	int 		color;
 }	t_mlx;
 
 //burning.c
