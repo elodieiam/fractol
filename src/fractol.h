@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 11:57:25 by elrichar          #+#    #+#             */
-/*   Updated: 2024/07/29 20:19:58 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/07/29 22:20:54 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ typedef struct s_mlx
 //burning.c
 int		get_iterations_ship(int x, int y, t_mlx *mlx_data);
 void	start_burning_ship(t_mlx *mlx_data);
-int		set_burning_fractal_vars(void);
+void		set_burning_fractal_vars(void);
 void	complex_plane_dimensions_burning(t_mlx *mlx_data);
 int		nb_iterations_burning(t_complex *c, t_complex *z);
 
