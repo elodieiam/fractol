@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 22:14:30 by elrichar          #+#    #+#             */
-/*   Updated: 2024/07/29 22:21:59 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/07/29 22:32:13 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	start_burning_ship(t_mlx *mlx_data)
 	mlx_put_image_to_window(mlx_data->mlx, mlx_data->mlx_win,
 		mlx_data->img_data.img, 0, 0);
 }
+
 
 void	set_burning_fractal_vars(void)
 {

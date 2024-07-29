@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 13:38:41 by elrichar          #+#    #+#             */
-/*   Updated: 2024/07/29 21:10:26 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/07/29 22:28:06 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int	start_fractal(int check, char **av)
 	}
 	else if (check == 4)
 	{
-		if (set_burning_fractal_vars())
-			return (ft_putstr_fd("Minilibx error\n", 2), 1);
+		set_burning_fractal_vars();
+			//return (ft_putstr_fd("Minilibx error\n", 2), 1);
 	}
 	return (0);
 }
