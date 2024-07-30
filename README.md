@@ -27,4 +27,4 @@ https://github.com/user-attachments/assets/14c7cf18-6cb4-48b9-bb8d-c1fab2235aab
 
 ## Installation 🛠️
 To install the program:
-git clone git@github.com:yourusername/fractol.git
+git clone git@github.com:elodieiam/fractol.git
