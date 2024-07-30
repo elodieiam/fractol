@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 12:00:05 by elrichar          #+#    #+#             */
-/*   Updated: 2024/07/29 21:08:40 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/07/30 18:36:02 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	zoom_in(int x, int y, t_mlx *mlx_data, double zoom)
 	mlx_data->ratio_x = (mlx_data->real_max - mlx_data->real_min) / WINDOW_X;
 	mlx_data->ratio_y = (mlx_data->imag_max - mlx_data->imag_min) / WINDOW_Y;
 	if (mlx_data->fractal == 1)
-		start_mandelbrot(mlx_data, 1);
+		start_mandelbrot(mlx_data);
 	else if (mlx_data->fractal == 2)		
 		start_julia(mlx_data);
 	else if (mlx_data->fractal == 3)
@@ -59,7 +59,7 @@ void	zoom_out(int x, int y, t_mlx *mlx_data, double zoom)
 	mlx_data->ratio_x = (mlx_data->real_max - mlx_data->real_min) / WINDOW_X;
 	mlx_data->ratio_y = (mlx_data->real_max - mlx_data->real_min) / WINDOW_X;
 	if (mlx_data->fractal == 1)
-		start_mandelbrot(mlx_data, 1);
+		start_mandelbrot(mlx_data);
 	else if (mlx_data->fractal == 2)
 		start_julia(mlx_data);
 	else if (mlx_data->fractal == 3)

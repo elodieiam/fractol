@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zoom_plane.c                                       :+:      :+:    :+:   */
+/*   shift_plane.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 22:06:21 by elrichar          #+#    #+#             */
-/*   Updated: 2023/08/24 11:44:24 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/07/30 18:36:40 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	move_plane_up(t_mlx *mlx_data)
 	mlx_data->imag_max += mlx_data->ratio_y * 0.05;
 	mlx_data->imag_min += mlx_data->ratio_y * 0.05;
 	if (mlx_data->fractal == 1)
-		start_mandelbrot(mlx_data, 0);
+		start_mandelbrot(mlx_data);
 	else if (mlx_data->fractal == 2)
 		start_julia(mlx_data);
 	else if (mlx_data->fractal == 3)
@@ -44,7 +44,7 @@ void	move_plane_down(t_mlx *mlx_data)
 	mlx_data->imag_max -= mlx_data->ratio_y * 0.05;
 	mlx_data->imag_min -= mlx_data->ratio_y * 0.05;
 	if (mlx_data->fractal == 1)
-		start_mandelbrot(mlx_data, 0);
+		start_mandelbrot(mlx_data);
 	else if (mlx_data->fractal == 2)
 		start_julia(mlx_data);
 	else if (mlx_data->fractal == 3)
@@ -58,7 +58,7 @@ void	move_plane_right(t_mlx *mlx_data)
 	mlx_data->real_min += mlx_data->ratio_x * 0.05;
 	mlx_data->ratio_x = (mlx_data->real_max - mlx_data->real_min) / WINDOW_X;
 	if (mlx_data->fractal == 1)
-		start_mandelbrot(mlx_data, 0);
+		start_mandelbrot(mlx_data);
 	else if (mlx_data->fractal == 2)
 		start_julia(mlx_data);
 	else if (mlx_data->fractal == 3)
@@ -72,7 +72,7 @@ void	move_plane_left(t_mlx *mlx_data)
 	mlx_data->real_min -= mlx_data->ratio_x * 0.05;
 	mlx_data->ratio_x = (mlx_data->real_max - mlx_data->real_min) / WINDOW_X;
 	if (mlx_data->fractal == 1)
-		start_mandelbrot(mlx_data, 0);
+		start_mandelbrot(mlx_data);
 	else if (mlx_data->fractal == 2)
 		start_julia(mlx_data);
 	else if (mlx_data->fractal == 3)

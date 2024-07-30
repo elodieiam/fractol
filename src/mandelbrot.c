@@ -6,13 +6,13 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 22:09:57 by elrichar          #+#    #+#             */
-/*   Updated: 2024/07/29 20:39:40 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/07/30 18:35:05 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	start_mandelbrot(t_mlx *mlx_data, int indicator)
+void	start_mandelbrot(t_mlx *mlx_data)
 {
 	int	x;
 	int	y;
@@ -27,9 +27,6 @@ void	start_mandelbrot(t_mlx *mlx_data, int indicator)
 		while (x < WINDOW_X)
 		{
 			iterations = get_iterations(x, y, mlx_data);
-			if (indicator == 1)
-				color_pixel(x, y, iterations, mlx_data);
-			else
 				color_pixel(x, y, iterations, mlx_data);
 			x++;
 		}
@@ -70,7 +67,7 @@ int	set_mandelbrot_vars(void)
 	mlx_data.fractal = 1;
 	mlx_data.color =  0x0A0A0A;
 	set_ratio(&mlx_data);
-	start_mandelbrot(&mlx_data, 0);
+	start_mandelbrot(&mlx_data);
 	mlx_hook(mlx_data.mlx_win, ButtonPress,
 		ButtonPressMask, mouse_scroll, &mlx_data);
 	mlx_key_hook(mlx_data.mlx_win, handle_escape, &mlx_data);

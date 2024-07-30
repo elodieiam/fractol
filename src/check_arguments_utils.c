@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 17:16:05 by elrichar          #+#    #+#             */
-/*   Updated: 2023/08/24 21:50:07 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/07/30 18:41:37 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,12 +94,12 @@ int	check_julia_args(char **av)
 
 void	print_instructions(void)
 {
-	ft_printf("Bienvenue dans mon projet fractol !\n");
-	ft_printf("Ce projet permet d'afficher 3 fractales differentes : \n");
-	ft_printf("Pour lancer Mandelbrot : ./fractol Mandelbrot\n\n");
-	ft_printf("Pour lancer Julia :\n./fractol nombre complexe\n");
-	ft_printf("Voici quelques valeurs interessantes de complexes : \n");
-	ft_printf("0.355 + 0.355i\n0 + 0.8i\n-0.54 + 0.54i\net plein d'autres...\n\n");
-	ft_printf("Pour lancer la fractale 'Burning Ship' :\n ./fractol Burning\n");
+	ft_printf("\033[1mTo display the fractal:\033[0m\n\n");
+	ft_printf("\033[1;35mMandelbrot:\033[0m ./fractol Mandelbrot\n\n");
+	ft_printf("\033[1;35mJulia:\033[0m   ./fractol Julia + complex number\n");
+	ft_printf("Example: ./fractol Julia 0.355 + 0.355i\n");
+	ft_printf("         ./fractol Julia -0.54 + 0.54i\n");
+	ft_printf("         ./fractol Julia  0 + 0.8i\n\n");
+	ft_printf("\033[1;35mBurning Ship:\033[0m ./fractol Burning\n\n");
 	ft_printf("Have fun !\n");
 }

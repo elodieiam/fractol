@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 11:57:25 by elrichar          #+#    #+#             */
-/*   Updated: 2024/07/29 22:33:38 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/07/30 18:34:50 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ int		nb_iterations_julia(t_complex *c, t_complex *z, double i);
 int		get_iterations_julia(int x, int y, t_mlx *mlx_data);
 
 //mandelbrot.c
-void	start_mandelbrot(t_mlx *mlx_data, int indicator);
+void	start_mandelbrot(t_mlx *mlx_data);
 int		set_mandelbrot_vars(void);
 int		check_sign(char *s);
 int		abs_val(int x);
